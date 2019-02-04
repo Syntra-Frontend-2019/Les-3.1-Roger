@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1> Oefening</h1>
+<p>Voer onderstaande bewerkingen uit terwijl je typt in het textarea veldje</p>    
+<textarea name="oefening" id="txtarea" cols="30" rows="10" onkeyup="myFunction()" ></textarea>
+
+<p>aantal letters: <span id="aantalLetters"></span></p>
+<p>aantal woorden: <span id="aantalWoorden"></span></p>
+<p>laatste woord: <span id="laatsteWoord"></span></p>
+
+<p>'Syntra' komt voor: <span id="syntraKomtVoor"></span></p>
+
+<button id="upperCase" onclick="upper()">Uppercase</button>
+<button id="lowerCase" onclick="lower()">Lowercase</button>
+
+
+
+
+<script>
+ var txtAantaLetters = document.querySelector("#aantalLetters");
+ var txtAantalWoorden = document.querySelector("#aantalWoorden");
+ var txtLaatsteWoord = document.querySelector("#laatsteWoord");
+ var txtKomtVoor = document.querySelector("#syntraKomtVoor");
+
+  function myFunction() {
+  var str = txtarea.value;
+  var n = str.length;
+  var x = [str];
+  var y = str.split(" ").pop();
+  var z = str.trim().split(/\s+/).length;
+ 
+  var syn = str.search("Syntra");
+  
+   if(syn<0)
+    {  
+     txtKomtVoor.innerHTML = "KOMT NIET VOOR"
+     
+    } 
+    else {
+        txtKomtVoor.innerHTML = "KOMT VOOR"
+   }  
+
+  txtAantaLetters.innerHTML = n;
+  txtAantalWoorden.innerHTML = z;
+  txtLaatsteWoord.innerHTML = y;
+  
+}
+
+
+  function upper() {
+        zin = txtarea.value;
+        txtarea.value = zin.toUpperCase();
+    }
+
+    function lower() {
+        zin = txtarea.value;
+        txtarea.value = zin.toLowerCase();
+    }
+
+</script>
+
+
+</body>
+</html>
